@@ -57,7 +57,7 @@
         
             <h3><a href="Favorite_Games.php"> Here are some of my favorite games. </a></h3>
         <hr>
-            <h2>(Gay)ming:</h2>
+            <h2>Aura Farming:</h2>
                 <p>
                     <font size=5">
                     <img src="images/Outfit/Style.jpg" alt="Insert Fashion Meme" height="300"><br>
