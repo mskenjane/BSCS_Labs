@@ -42,24 +42,6 @@
         </p>
         <hr>
 
-        <h2>Chibis:</h2>
-        <table>
-            <tr>
-                <td><img src="images\BORGIR KENAJNE!!!-Drool.png" alt="Chibi 1 Kenjane" height="200"></td>
-                <td><img src="images\CHIBIIIIIIIIIIII-Signature.png" alt="Chibi 2 Kenjane" height="200"></td>
-                <td><img src="images\Ice Cweam Kenjane!!!.png" alt="Chibi 3 Kenjane" height="200"></td>
-
-            </tr>
-        </table>
-            
-        <p> 
-            <font size=4">
-            I'm actually very fond of drawing Kenjane, as it's like a way for me to express my emotions as I struggle to show it through justt the face alone. <br>
-            You can already see how adorable I draw her. <br>
-            </font>
-        </p>
-        <hr>
-
         <h2>Original Story:</h2>
         <table>
             <tr>
