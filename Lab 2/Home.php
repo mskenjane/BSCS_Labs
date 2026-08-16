@@ -65,7 +65,7 @@
                     </font>
 
                     <font size=4">
-                    <br>I've started sarting to style not that long ago. it was during near the end of the first year in La salle. <br>
+                    <br>I've started to style myself not that long ago. it was during near the end of the first year in La salle. <br>
                     you could say it thas a bit of a sad backstory tied into it. But in short, It was the result of taking care of myself. 
                     </font>
                 </p>
