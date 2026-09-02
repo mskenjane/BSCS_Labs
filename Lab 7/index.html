@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img src="./Images/" id="bulb" alt="">
+    
+    <label for="Grade">Enter a score to check your Grade </label> <br>
+    <input type="text" id="score" placeholder="Enter your grade">
+    <input type="text" id="total" placeholder="Total Score:">
+
+    <select name="dropdown" id="option">
+        <option value="grade">Percentage</option>
+        <option value="Pass" >Pass/Fail</option>
+    </select>
+
+     <script>
+        function Final_grade(){
+            let num1 = document.getElementById("score").value;
+            let num2 = document.getElementById("total").value;
+            let grade = (num1/num2) * 100;
+
+            if(grade >= 75, grade <=80){
+                document.getElementById("grade").src='./Images/On.png'
+            }else if (grade >= 81, grade <=85){
+                document.getElementById("grade").src='./Images/On.png'
+            }else if (grade >= 86, grade <=90){
+                document.getElementById("grade").src='./Images/On.png'
+            }else if (grade >= 91){
+                document.getElementById("grade").src='./Images/On.png'
+            } else if (grade < 75){
+                document.getElementById("grade").src='./Images/Off.png'
+            }
+        }
+    </script>
+
+    <button onclick="document.getElementById('bulb').src='./Images/Off.png'">Calculate Grade</button> <br>
+    <img src="./Images/On.png" alt="bulb" height: 25>
+</body>
+</html>
