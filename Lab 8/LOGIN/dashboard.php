@@ -17,17 +17,6 @@ if (!isset($_SESSION["username"])){
 <body>
     <h2>hello <?php echo $_SESSION["username"]; ?></h2>
 
-    <?php
-    $testhash = "testing";
-    echo password_hash($testhash, PASSWORD_DEFAULT);
-    echo "<br>";
-    echo "this is MD5: " . md5($testhash);
-    echo "<br>";
-    echo "this is SHA1: " . sha1($testhash);
-    echo "<br>";
-    echo "this is MD5: " . sha1($testhash);
-    ?>
-
     <br>
     <a href="logout.php">logout</a>
     <marquee behavior="" direction="" scrollamount=5000 size>
