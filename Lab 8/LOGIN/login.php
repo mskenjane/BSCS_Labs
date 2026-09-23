@@ -9,11 +9,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    if(empty($errors)){
-        $sql = "SELECT * FROM 'users' WHERE 'username' = '$username'";
-        //$user = $conn->query;
-    }
-
     if(empty($username)){
         $errors[] = "Username is required";
     }
@@ -26,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if(password_verify($password, $user['password'])){
             $_SESSION['username'] = $username;
-            header("location: dashboard.php")
+            header("location: dashboard.php");
         }
     }
 }
