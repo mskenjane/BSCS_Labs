@@ -14,10 +14,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){ // check which method is used when sub
         $errors[] = "Username is required"; // saves the error to $errors array
     }
 
-    $sql = "SELECT `username` FROM `users` WHERE `username` = '$username'"; // constructing the SQL query for checking if username exists on the database
-    $result = $conn->query($sql); // executing the query command
+    $result = pg_query_params($conn, 'SELECT username FROM users WHERE username = $1', [$username]);
 
-    if($result->num_rows > 0){ // ensuring that there is no similar username on the database
+    if(pg_fetch_assoc($result)){ // ensuring that there is no similar username on the database
         $errors[] = "username already exist"; // saves the error to $errors array
     }
 
@@ -34,8 +33,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){ // check which method is used when sub
     $passwordHashed = password_hash($password, PASSWORD_DEFAULT); // encrypting the password
 
     if(empty($errors)){ // checks if the errors array is empty
-        $sql = "INSERT INTO `users` (`username`, `password`) VALUES ('$username', '$passwordHashed')"; // constructing the SQL query for inserting values to the database
-        $conn->query($sql); // executing the query
+        pg_query_params(
+            $conn,
+            'INSERT INTO users (username, password) VALUES ($1, $2)',
+            [$username, $passwordHashed]
+        );
         echo "Registered Successfully!"; // print the message
     }
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("bd.php");
+include("db.php");
 
 $errors = [];
 
@@ -13,17 +13,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $errors[] = "Username is required";
     }
 
-    $sql = "SELECT * FROM 'users' WHERE 'username' = '$username'";
-    $result = $conn->query($sql);
-
-    if($result->num_rows == 1){
-        $user = mysqli_fetch_assoc($result);
-
-        if(password_verify($password, $user['password'])){
-            $_SESSION['username'] = $username;
+    $result = pg_query_params($conn, 'SELECT * FROM users WHERE username = $1', [username]);
+    $user = ph_fetch_assoc($result);
+    
+    if ($user){
+        if (password_verify($password, $user['password'])){
+            $_SESSION['username'] = $user['username'];
             header("location: dashboard.php");
+            exit();
         }
     }
+    // if($result->num_rows == 1){
+    //     $user = mysqli_fetch_assoc($result);
+
+    //     if(password_verify($password, $user['password'])){
+    //         $_SESSION['username'] = $username;
+    //         header("location: dashboard.php");
+    //     }
+    // }
 }
 
 
