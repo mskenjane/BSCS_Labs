@@ -13,8 +13,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $errors[] = "Username is required";
     }
 
-    $result = pg_query_params($conn, 'SELECT * FROM users WHERE username = $1', [username]);
-    $user = ph_fetch_assoc($result);
+    $result = pg_query_params($conn, 'SELECT * FROM users WHERE username = $1', [$username]);
+    $user = pg_fetch_assoc($result);
     
     if ($user){
         if (password_verify($password, $user['password'])){
