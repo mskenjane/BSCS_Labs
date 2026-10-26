@@ -1,0 +1,13 @@
+*{
+    text-align: center;
+}
+
+th {
+    background-color: rgb(21, 142, 255);
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
