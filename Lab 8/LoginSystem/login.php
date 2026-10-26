@@ -23,14 +23,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             exit();
         }
     }
-    // if($result->num_rows == 1){
-    //     $user = mysqli_fetch_assoc($result);
-
-    //     if(password_verify($password, $user['password'])){
-    //         $_SESSION['username'] = $username;
-    //         header("location: dashboard.php");
-    //     }
-    // }
 }
 
 
