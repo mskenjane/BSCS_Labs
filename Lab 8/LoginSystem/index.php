@@ -10,9 +10,7 @@
     <h2>Login System</h2>
 
     <br>
-    <a href="register.php">Register</a>
-    <a> | </a>
-    <a href="login.php">Login</a>
+    <a href="register.php">Register</a> | <a href="login.php">Login</a>
     <marquee behavior="" direction="" scrollamount=5000 size>
         <p style = "font-size: 1000px;">BOMBACLAT</p>
     </marquee>

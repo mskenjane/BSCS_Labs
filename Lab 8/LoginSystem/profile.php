@@ -1,24 +1,59 @@
 <?php
-include("db.php");
+session_start();
+include('db.php');
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
 
 $errors = [];
+$success = "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $address = $_POST["address"];
+$username = $_SESSION['username'];
+$result = pg_query_params($conn, 'SELECT * FROM users WHERE username = $1', [$username]);
+$user = pg_fetch_assoc($result);
 
-    if(empty($address)){
-        $errors[] = "Phone Address is required";
+if (!$user) {
+    session_destroy();
+    header('Location: login.php');
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $address = trim($_POST['address']); // Bata Prk bato ambot ano na, bacolod
+    $phone = trim($_POST['phone']);
+
+    if (empty($address)) {
+        $errors[] = "Address is required";
     }
 
-    $result = pg_query_params($conn, 'SELECT * FROM users WHERE address = $1', [$address]);
-    $user = pg_fetch_assoc($result);
-    
-    if ($user){
-        if (password_verify($password, $user['password'])){
-            $_SESSION['username'] = $user['username'];
-            header("location: dashboard.php");
-            exit();
-        }
+    if (empty($errors)) {
+
+        pg_query_params(
+            $conn,
+            'UPDATE users SET address = $1 WHERE username = $2',
+            [$address, $username]
+        );
+
+        // $user['address'] = trim($_POST['address']);
+        $success = "Address updated successfully";
+    }
+
+    if (empty($phone)) {
+        $errors[] = "Contact number is required";
+    }
+
+    if (empty($errors)) {
+        
+        pg_query_params(
+            $conn,
+            'UPDATE users SET number = $1 WHERE username = $2',
+            [$phone, $username]
+        );
+
+        // $user['address'] = trim($_POST['address']);
+        $success = "Phone number updated successfully";
     }
 }
 

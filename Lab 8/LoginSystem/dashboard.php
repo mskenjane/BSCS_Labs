@@ -18,7 +18,7 @@ if (!isset($_SESSION["username"])){
     <h2>hello <?php echo $_SESSION["username"]; ?></h2>
 
     <br>
-    <a href="logout.php">logout</a>
+    <a href="logout.php">Logout</a> | <a href="profile.php">Profile</a>
     <marquee behavior="" direction="" scrollamount=5000 size>
         <p style = "font-size: 1000px;">BOMBACLAT</p>
     </marquee>
