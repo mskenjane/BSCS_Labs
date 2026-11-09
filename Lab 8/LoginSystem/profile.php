@@ -79,17 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
         <br><br>
         <button type="submit">Update</button>
+        <br><br>
+        <?php if ($success){echo $user['address'] . " has been added into the profile. <br>"; } ?>
+        <?php if ($success){ echo $success; } ?>
+        
     </form>
 
-    <br><br>
-    <?php echo $user['address'] . "<br>"; ?> <a href="dashboard.php">Delete</a>
+    <a href="delete.php">Delete</a>
     <br><br>
     <a href="dashboard.php">Back to Dashboard</a>
     <?php
-
-    if ($success){
-        echo $success;
-    }
 
     foreach ($errors as $error){
         echo $error . "<br";
